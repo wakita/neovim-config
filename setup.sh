@@ -11,7 +11,7 @@ if [ ! -h $HOME/.config/nvim ]; then
   ln -s $HOME/Dropbox/lib/nvim $HOME/.config
 fi
 
-'''
+Comment=<<End_of_comment
 Python 3 support:
     conda activate py37
     conda install unidecode
@@ -19,7 +19,7 @@ Python 3 support:
 
 NodeJS support:
     npm install -g neovim
-'''
+End_of_comment
 
 # Create local temporary directories
 mkdir -p $HOME/.tmp/vim/{backup,undo}
