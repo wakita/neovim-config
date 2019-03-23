@@ -11,11 +11,6 @@ if [ ! -h $HOME/.config/nvim ]; then
   ln -s $HOME/Dropbox/lib/nvim $HOME/.config
 fi
 
-if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
-  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
 '''
 Python 3 support:
     conda activate py37

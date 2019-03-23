@@ -15,15 +15,4 @@ tnoremap <M-l> <c-\><c-n><c-w>l
 
 highligh! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'iCyMind/NeoSolarized'
-
-Plug 'lervag/vimtex'
-
-Plug 'Sirver/ultisnips'
-Plug 'honza/vim-snippets'
-
-call plug#end()
-
 runtime! user/*.vim

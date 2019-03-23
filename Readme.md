@@ -6,13 +6,17 @@
 
 いくつかのパッケージを `pack/start` に保存しています。すべて `git clone` して拾ってきました。`nvim`の標準的なパッケージ管理方式に任せているので、ほかのパッケージ管理システムは利用していません。
 
-- eskk.vim:               SKK (かな漢字変換)
-- fzf.vim:                ファジー検索 (要 `fzf`):
-- goyo.vim:               集中編集モード
-- neoterm:                ターミナル機能の強化
-- vim-fugitive:           Git機能の強化
-- vim-python-pep8-indent: Python
-- vim-scala:              Scala
+- tyru/eskk:                     SKK (かな漢字変換)
+- junegunn/fzf.vim:              ファジー検索 (要 `fzf`):
+- junegunn/goyovim:              集中編集モード
+- kassio/neoterm:                ターミナル機能の強化
+- iCyMind/NeoSolarized:          基本的なハイライト
+- SirVer/ultisnips:              スニペット
+- tpope/vim-fugitive:            Git
+- Vimjas/vim-python-pep8-indent: Python
+- derekwyatt/vim-scala:          Scala
+- honza/vim-snippets:            スニペット
+- lervag/vimtex:                 LaTeX
 
 # 個人的な設定ファイルの構成
 
