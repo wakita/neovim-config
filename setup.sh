@@ -11,5 +11,10 @@ if [ ! -h $HOME/.config/nvim ]; then
   ln -s $HOME/Dropbox/lib/nvim $HOME/.config
 fi
 
+if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
 # Create local temporary directories
 mkdir -p $HOME/.tmp/vim/{backup,undo}
