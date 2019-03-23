@@ -11,15 +11,17 @@ if [ ! -h $HOME/.config/nvim ]; then
   ln -s $HOME/Dropbox/lib/nvim $HOME/.config
 fi
 
-Comment=<<End_of_comment
-Python 3 support:
+: <<END OF COMMENTS
+
+  Python 3 support:
     conda activate py37
     conda install unidecode
     pip install pynvim neovim-remote
 
-NodeJS support:
+  NodeJS support:
     npm install -g neovim
-End_of_comment
+
+END OF COMMENTS
 
 # Create local temporary directories
 mkdir -p $HOME/.tmp/vim/{backup,undo}
