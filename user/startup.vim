@@ -20,7 +20,8 @@ command JIS  set fileencoding=iso-2022-jp
 command Euc  e ++enc=euc-jp<CR>
 command EUC  set fileencoding=euc-jp
 command UNIX set fileformat=unix
-set statusline=%f\ %{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}
+" git.vim の設定を利用する
+" set statusline=%f\ %{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}
 
 set fileformats=unix,dos,mac
 set formatoptions=q
