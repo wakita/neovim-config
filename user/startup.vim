@@ -1,20 +1,14 @@
-"set pythonthreehome=/Users/wakita/anaconda3/envs/python36
-"set pythonhome=/Users/wakita/anaconda3/envs/python36
-"set pythonthreedll=/Users/wakita/anaconda3/envs/python36/lib/libpython3.5m.dylib
-
-"if has('python3')
-"endif
-
 " バックアップ関連
 " savevers.vim をインストールすれば世代別のバックアップも可能
 set backupdir=$HOME/.tmp/vim/backup
-let &directory = &backupdir
+set directory=$HOME/.tmp/vim/swap
 set undodir=$HOME/.tmp/vim/undo
 
 set nocompatible
 
+let mapleader = "\<Space>"
+
 " 文字コード関連
-"
 "   ファイルを UTF-8 で開き直す方法
 "   map utf8 :e ++enc=utf-8
 "   http://sites.google.com/site/fudist/Home/vim-nihongo-ban/mojibake
@@ -30,11 +24,6 @@ set statusline=%f\ %{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}
 
 set fileformats=unix,dos,mac
 set formatoptions=q
-
-" QuickLook のプレビューを表示
-if has('mac')
-  command QL !qlmanage -p % >& /dev/null &
-endif
 
 " 編集のための設定
 set backspace=indent,eol,start
@@ -72,8 +61,7 @@ let g:loaded_matchparen=1
 " コマンドライン補完するときに補完候補を表示する
 set wildmenu
 
-" お気に入りのファイルをキーを2つ入力しただけで開く
-" マーク: m[A-Z], ジャンプ: '[A-Z]
+" ファイルをあっという間に開く: マーク: m[A-Z], ジャンプ: '[A-Z]
 " set viminfo += f1
 
 " 畳み込み
@@ -82,12 +70,17 @@ set foldmethod=marker
 " □■
 set ambiwidth=double
 
-"Markdown settings"
+" プレビュー
+
+" Markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 command MarkdownView !markdown preview "%:p"
 "autocmd FileType map
 
-" Manual
+" QuickLook
+if has('mac')
+  command QL !qlmanage -p % >& /dev/null &
+endif
 
 filetype plugin indent on
 

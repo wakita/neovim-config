@@ -11,8 +11,11 @@ if [ ! -h $HOME/.config/nvim ]; then
   ln -s $HOME/Dropbox/lib/nvim $HOME/.config
 fi
 
+# ローカルパスたち
+mkdir -p $HOME/.local/share/nvim/{site/after,view}
+
 # ゴミ置き場を作成する
-mkdir -p $HOME/.tmp/vim/{backup,undo}
+mkdir -p $HOME/.tmp/vim/{backup,swap,undo}
 
 # Python3 や NodeJS のプラグインを利用したければ以下をやる。ほかのソフトウェア環境に強く依存するので、これらは自動化していない。
 : <<END OF COMMENTS

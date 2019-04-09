@@ -115,10 +115,3 @@ endfunction
 command! -nargs=* Dict call <SID>dict(<f-args>)
 
 command Paper1 cd $MYPAPER/$PAPER1
-
-" Syncing with Skim
-" https://qiita.com/KeitaNakamura/items/87dad47dc09ae8bf6abf
-" Requires vimtex: https://github.com/lervag/vimtex
-
-let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '@line @pdf @tex'
