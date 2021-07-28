@@ -1,29 +1,24 @@
-# `neovim` の構成
+# NeoVimの設定
 
-`setup.sh`を見て下さい。ほとんどの設定は `Dropbox/lib/nvim` に保存してあります。`~/.config/nvim` はこのディレクトリへのシンボリックリンクとしています。バックアップ等のファイルは Dropbox に保存すると複数の機器の間で衝突して面倒なので `$HOME/.tmp/nvim` に別途設けています。
+## [`init.vim`](init.vim)
 
-# Packages
+最小限の設定（`<Leader>` の設定と言語設定）とプラグインの読み込み（プラグイン管理システムは `junegunn/vim-plug`）
 
-いくつかのパッケージを `pack/bundle/start` に保存しています。すべて `git clone` して拾ってきました。NoeVimの標準的なパッケージ管理方式に任せています。従来のパッケージ管理システムは利用していません。
+~~~
+let mapleader="\<Space>"
+let maplocalleader=mapleader
+language en_US
+~~~
 
-| Package                        | Description
-| ------------------------------ | ---------------------------
-| tyru/eskk:                     | SKK (かな漢字変換)
-| junegunn/fzf.vim:              | ファジー検索 (要 `fzf`)
-| junegunn/goyovim:              | 集中編集モード
-| kassio/neoterm:                | ターミナル機能の強化
-| iCyMind/NeoSolarized:          | 基本的なハイライト
-| SirVer/ultisnips:              | スニペット
-| tpope/vim-fugitive:            | Git
-| Vimjas/vim-python-pep8-indent: | Python
-| derekwyatt/vim-scala:          | Scala
-| honza/vim-snippets:            | スニペット
-| lervag/vimtex:                 | LaTeX
-------------------------------------------------------------
+実は下記の自分用の設定パッケージに同居させ、`~/.config/nvim/init.vim -> ~/Dropbox/lib/nvim/init.vim`というシンボリックリンクで参照している。
 
-# 個人的な設定ファイルの構成
+本パッケージは `~/Dropbox/lib/nvim` に配置し、これを `vim-plug` の unmanaged plugin として設定している。
 
-設定が多くなると疲れるので、NeoVim の個人的な設定は `user/*.vim` に関連する項目ごとに整理しています。`init.vim` はそれらの設定を読み込んでいるだです。
+~~~
+" My settings
+Plug '~/Dropbox/lib/nvim'
+~~~
 
-- `init.vim`
-- `user/*.vim`
+このパッケージの構造は普通の Vim パッケージと同じく `after/`, `doc/`, `ftplugin/`, `plugin/` などを含む。
+
+この設定の備忘録として [`/Dropbox/lib/nvim/bin/setup.sh`](bin/setup.sh) を用意した。

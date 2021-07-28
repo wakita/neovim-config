@@ -1,16 +1,79 @@
-snippet sign "Signature"
-Yours sincerely,
+snippet regards "best regards"
 
-Gilles Castel
+Best regards,
+- Ken Wakita
 endsnippet
 
-snippet today "Date"
-`date +%F`
+snippet regards "with warm regards"
+
+With warm regards,
+- Ken Wakita
 endsnippet
 
-snippet box "Box"
-`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
-│ $1 │
-`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
-$0
+global !p
+import datetime
+from dateutil.relativedelta import relativedelta
+
+元号base = [ ('明治', '1868-01-25'), ('大正', '1912-07-30'), ('昭和', '1926-12-25'),
+	 ('平成', '1989-01-08'), ('令和', '2019-05-01') ]
+元号base = reversed([ (name, datetime.date.fromisoformat(d)) for name, d in 元号base ])
+
+def 和暦(y, m, d):
+    t = datetime.date(y, m, d)
+    元号, base = next((n, d) for n, d in 元号base if d < t)
+    y = t.year - base.year + 1
+    return f"{元号}{'元' if y == 1 else y}年{t.strftime('%m月%d日')}"
+endglobal
+
+# today snippet
+#
+# Usage:
+# today
+# today 1[d]: tomorrow, today 2[d]: the day after tomorrow
+# today -1[d]: yesterday, today -2[d]: the day before yesterday
+# today 1w: this day next week, 2w: two weeks later today, -2w: two weeks ago today
+# today 1m: one month later today, 2m, -3m
+# today 1y, -10y
+#
+# Requirements: `python-dateutil`
+
+snippet "today *(([+-]?[0-9]+)?)([dwmy]?)" "The date relative to today" r
+`!p
+n = int(match.group(1) or '0')
+k = match.group(3) or 'd'
+key = next(key for key in 'days weeks months years'.split(' ') if key[0] == k)
+delta = relativedelta(**dict([(key, n)]))
+snip.rv = f"{(datetime.date.today() + delta).strftime('%Y-%m-%d')}"`
 endsnippet
+
+snippet "gen5 *(([+-]?\d+)?)([dwmy]?)" "元号" r
+`!p
+n = int(match.group(1) or '0')
+k = match.group(3) or 'd'
+key = next(key for key in 'days weeks months years'.split(' ') if key[0] == k)
+delta = relativedelta(**dict([(key, n)]))
+t = datetime.date.today() + delta
+snip.rv = 和暦(t.year, t.month, t.day)
+`
+endsnippet
+
+# 令和3年07月10日
+# 令和3年08月07日
+# 令和3年08月07日
+
+snippet "gen5 (\d{4})-(\d{2})-(\d{2})" "Gregorian → 和暦" r
+`!p
+year, month, day = [int(match.group(i+1)) for i in range(3)]
+snip.rv = 和暦(year, month, day)
+`
+endsnippet
+
+snippet "(明治|大正|昭和|平成|令和)(\d+)" "元号 → 西暦" r
+`!p
+G = match.group
+year = next(d.year for (元号, d) in 元号base if 元号 == G(1))
+snip.rv = str(year + int(G(2)) - 1)
+`
+endsnippet
+
+# 1965 1965 1868

@@ -2,6 +2,25 @@ snippet header "Pandoc-style Markdown header"
 ---
 title: '$1'
 date: '`date +%F`'
+author: '${2:Ken Wakita}'
 ---
 
+# `!p snip.rv = t[1].upper()` ($2, `date +%F`)
+endsnippet
+
+global !p
+state = {}
+endglobal
+
+snippet !p "Take a snapshot photo of the current Zoom session"
+`!p
+n = snip.buffer.number
+state[n] = state.get(n, 0) + 1
+state[n] = state.get(n, 0) + 1
+snip.rv = f"[](a.jpg \"{state[n]} {snip.buffer.number}\") {snip.buffer.filetypes}"
+`
+endsnippet
+
+snippet !t "現在時刻の挿入"
+`!v strftime("%H:%M:%S  ")`
 endsnippet
