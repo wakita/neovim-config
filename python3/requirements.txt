@@ -1,0 +1,12 @@
+# Python 基盤モジュール
+pip
+wheel
+
+# NeoVim 基盤モジュール
+neovim
+pynvim
+
+# その他
+python-dateutil  # UltiSnips
+qiita_v2         # Qiita
+watchdog         # pandocserver

@@ -1,18 +1,21 @@
-tnoremap <C-v><Esc> <Esc>
-
-nnoremap <M-h> <c-w>h
-nnoremap <M-j> <c-w>j
-nnoremap <M-k> <c-w>k
-nnoremap <M-l> <c-w>l
-
-tnoremap <M-h> <c-\><c-n><c-w>h
-tnoremap <M-j> <c-\><c-n><c-w>j
-tnoremap <M-k> <c-\><c-n><c-w>k
-tnoremap <M-l> <c-\><c-n><c-w>l
-
-"nnoremap <c-w>[ -tabnext
-"nnoremap <c-w>] tabnext
-
-"command! Tnew :5split | :term
-"nnoremap <C-W> :bd!<CR>
 nnoremap <C-R> :w<CR>:7sp<CR>:term ./%<CR>
+
+" タブを巡回
+nnoremap <tab>h :tabprev<cr> | nnoremap <Leader>th :tabprev<CR>
+nnoremap <tab>l :tabnext<cr> | nnoremap <Leader>tl :tabnext<CR>
+
+" 上下左右のウィンドウに移動
+nnoremap <Leader>wh  <c-w>h
+nnoremap <Leader>wj  <c-w>j
+nnoremap <Leader>wk  <c-w>k
+nnoremap <Leader>wl  <c-w>l
+nnoremap <Leader>ws  <c-w>s
+nnoremap <Leader>wv  <c-w>v
+nnoremap <Leader>w-  <c-w>-
+nnoremap <Leader>w+  <c-w>+
+nnoremap <Leader>w\| <c-w>|
+nnoremap <Leader>w=  <c-w>=
+
+" バッファを交換
+nnoremap <c-b>h :bprev<CR> | nnoremap <Leader>bh :bprev<CR>
+nnoremap <c-b>l :bnext<CR> | nnoremap <Leader>bl :bnext<CR>

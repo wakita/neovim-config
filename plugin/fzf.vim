@@ -1,4 +1,4 @@
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
@@ -31,3 +31,5 @@ endfunction
 
 nmap <Leader>z :call GetWindowID()<CR>
 inoremap <c-x><c-z> fzf#vim#complete('/usr/local/bin/GetWindowID Terminal --list')
+
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow

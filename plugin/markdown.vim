@@ -1,1 +1,5 @@
-let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+let g:pandoc#after#modules#enabled = ["ultisnips"]
+let g:pandoc#folding#mode = 'stacked'
+let g:pandoc#spell#enabled = 0

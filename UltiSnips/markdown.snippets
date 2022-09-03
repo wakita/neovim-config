@@ -1,11 +1,30 @@
 snippet header "Pandoc-style Markdown header"
 ---
 title: '$1'
-date: '`date +%F`'
 author: '${2:Ken Wakita}'
+date: '`date +%F`'
 ---
 
 # `!p snip.rv = t[1].upper()` ($2, `date +%F`)
+endsnippet
+
+
+snippet zk "Zettelkarten header"
+---
+title: '$1'
+id: `date -u | md5`
+author: 'Ken Wakita'
+created: '`date -u +"%a %b %d %H:%M:%S %Z %Y"`'
+---
+
+endsnippet
+
+
+snippet qiita "Qiita-style Markdown header"
+標題
+Tag:None
+
+本文
 endsnippet
 
 global !p

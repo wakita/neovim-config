@@ -1,0 +1,1 @@
+command! Preview md %:p

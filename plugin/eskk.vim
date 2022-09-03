@@ -28,3 +28,4 @@ endfunction
 
 command SkkTechnical call s:eskk_punctuation([[',', '，'], ['.', '．']])
 command SkkCasual    call s:eskk_punctuation([[',', '、'], ['.', '。']])
+command Technical /begin{markdown}/,$s/、/，/g | /begin{markdown}/,$s/。/．/g
